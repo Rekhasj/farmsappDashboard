@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { IconDownload } from "@/components/ui/icons";
 import { useT } from "@/i18n/I18nProvider";
+import { PLAY_STORE_URL } from "@/lib/constants";
 
 function LeafBadge() {
   // Placeholder brand mark — swap for the exact app icon export.
@@ -53,13 +54,15 @@ export default function AppDownloadBanner() {
       </div>
 
       <div className="flex items-center gap-2 shrink-0">
-        <button
-          type="button"
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1 rounded-sm bg-[#2e5b3a] px-3 py-2 text-xs font-bold text-white whitespace-nowrap"
         >
           <IconDownload className="size-2.5" />
           {t("home.downloadApp")}
-        </button>
+        </a>
         <button
           type="button"
           aria-label={t("common.dismiss")}

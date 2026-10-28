@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getT } from "@/i18n/server";
+import { PLAY_STORE_URL } from "@/lib/constants";
 
 /** Desktop/TV footer (md and up). Phones use the farmsapp bottom tab bar instead. */
 export default async function SiteFooter() {
@@ -34,7 +35,14 @@ export default async function SiteFooter() {
         <div>
           <p className="text-sm font-bold text-[#202020]">{t("home.offerTitle")}</p>
           <p className="mt-1 text-xs text-[#6a7282]">{t("home.offerSubtitle")}</p>
-          <span className="mt-3 inline-flex rounded-lg bg-[#1f4529] px-4 py-2 text-xs font-bold text-white">{t("home.downloadApp")}</span>
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex rounded-lg bg-[#1f4529] px-4 py-2 text-xs font-bold text-white hover:bg-[#2e5b3a]"
+          >
+            {t("home.downloadApp")}
+          </a>
         </div>
       </div>
       <div className="border-t border-[#f0f0f0] py-4 text-center text-[11px] text-[#99a1af]">© {new Date().getFullYear()} Zuari FarmHub · FarmsApp</div>
